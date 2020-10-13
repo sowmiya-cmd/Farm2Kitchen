@@ -11,10 +11,8 @@
     <div class="row-fluid">
         <div class="span8">
 
-            <!-- items -->
+          
             <table class="table table-bordered">
-
-                <!-- header -->
                 <tr class="well">
                     <td><b>Item</b></td>
                     <td class="tdCenter"><b>Quantity</b></td>
@@ -22,19 +20,19 @@
                     <td />
                 </tr>
 
-                <!-- empty cart message -->
+               
                 <tr ng-hide="cart.getTotalCount() > 0" >
                     <td class="tdCenter" colspan="4">
                         Your cart is empty.
                     </td>
                 </tr>
 
-                <!-- cart items -->
+              
                 <tr ng-repeat="item in cart.items | orderBy:'name'">
                     <td>{{item.name}}</td>
                     <td class="tdCenter">
                       <div class="input-append">
-                        <!-- use type=tel instead of  to prevent spinners -->
+                       
                         <input
                             class="span3 text-center" type="tel" 
                             ng-model="item.quantity" 
@@ -57,7 +55,7 @@
                     </td>
                 </tr>
 
-                <!-- footer -->
+                
                 <tr class="well">
                     <td><b>Total</b></td>
                     <td class="tdCenter"><b>{{cart.getTotalCount()}}</b></td>
@@ -67,12 +65,12 @@
             </table>
         </div>
 
-        <!-- buttons -->
+       
         <div class="span4">
             <p class="text-info">
                 <button 
                     class="btn btn-block" 
-                    onclick="window.location.href='default.htm'">
+                    onclick="window.location.href='index.html'">
                     <i class="icon-chevron-left" /> back to store
                 </button>
                 <button 
@@ -105,7 +103,7 @@
                     <i class="icon-ok icon-white" /> check out using Stripe
                 </button>
             </p>
-                <!-- Stripe needs a form to post to -->
+               
                 <form class="form-stripe"></form>
 
             <br /><br />
