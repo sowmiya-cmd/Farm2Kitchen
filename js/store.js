@@ -1,14 +1,4 @@
-﻿//----------------------------------------------------------------
-// store (contains the products)
-//
-// NOTE: nutritional info from http://www.cspinet.org/images/fruitcha.jpg
-// score legend:
-// 0: below 5% of daily value (DV)
-// 1: 5-10% DV
-// 2: 10-20% DV
-// 3: 20-40% DV
-// 4: above 40% DV
-//
+
 function store() {
     this.products = [
         new product("APL", "Apple", "Eat one every day to keep the doctor away!", 12, 90, 0, 2, 0, 1, 2),
