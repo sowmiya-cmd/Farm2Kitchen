@@ -1,16 +1,13 @@
-﻿//----------------------------------------------------------------
-// shopping cart
-//
+
 function shoppingCart(cartName) {
     this.cartName = cartName;
     this.clearCart = false;
     this.checkoutParameters = {};
     this.items = [];
 
-    // load items from local storage when initializing
     this.loadItems();
 
-    // save items to local storage when unloading
+   
     var self = this;
     $(window).unload(function () {
         if (self.clearCart) {
@@ -21,7 +18,7 @@ function shoppingCart(cartName) {
     });
 }
 
-// load items from local storage
+
 shoppingCart.prototype.loadItems = function () {
     var items = localStorage != null ? localStorage[this.cartName + "_items"] : null;
     if (items != null && JSON != null) {
@@ -36,24 +33,24 @@ shoppingCart.prototype.loadItems = function () {
             }
         }
         catch (err) {
-            // ignore errors while loading...
+           
         }
     }
 }
 
-// save items to local storage
+
 shoppingCart.prototype.saveItems = function () {
     if (localStorage != null && JSON != null) {
         localStorage[this.cartName + "_items"] = JSON.stringify(this.items);
     }
 }
 
-// adds an item to the cart
+
 shoppingCart.prototype.addItem = function (sku, name, price, quantity) {
     quantity = this.toNumber(quantity);
     if (quantity != 0) {
 
-        // update quantity for existing item
+       
         var found = false;
         for (var i = 0; i < this.items.length && !found; i++) {
             var item = this.items[i];
@@ -66,18 +63,18 @@ shoppingCart.prototype.addItem = function (sku, name, price, quantity) {
             }
         }
 
-        // new item, add now
+      
         if (!found) {
             var item = new cartItem(sku, name, price, quantity);
             this.items.push(item);
         }
 
-        // save changes
+       
         this.saveItems();
     }
 }
 
-// get the total price for all items currently in the cart
+
 shoppingCart.prototype.getTotalPrice = function (sku) {
     var total = 0;
     for (var i = 0; i < this.items.length; i++) {
@@ -89,7 +86,7 @@ shoppingCart.prototype.getTotalPrice = function (sku) {
     return total;
 }
 
-// get the total price for all items currently in the cart
+
 shoppingCart.prototype.getTotalCount = function (sku) {
     var count = 0;
     for (var i = 0; i < this.items.length; i++) {
@@ -101,16 +98,16 @@ shoppingCart.prototype.getTotalCount = function (sku) {
     return count;
 }
 
-// clear the cart
+
 shoppingCart.prototype.clearItems = function () {
     this.items = [];
     this.saveItems();
 }
 
-// define checkout parameters
+
 shoppingCart.prototype.addCheckoutParameters = function (serviceName, merchantID, options) {
 
-    // check parameters
+   
     if (serviceName != "PayPal" && serviceName != "Google" && serviceName != "Stripe") {
         throw "serviceName must be 'PayPal' or 'Google' or 'Stripe'.";
     }
@@ -118,25 +115,25 @@ shoppingCart.prototype.addCheckoutParameters = function (serviceName, merchantID
         throw "A merchantID is required in order to checkout.";
     }
 
-    // save parameters
+   
     this.checkoutParameters[serviceName] = new checkoutParameters(serviceName, merchantID, options);
 }
 
-// check out
+
 shoppingCart.prototype.checkout = function (serviceName, clearCart) {
 
-    // select serviceName if we have to
+ 
     if (serviceName == null) {
         var p = this.checkoutParameters[Object.keys(this.checkoutParameters)[0]];
         serviceName = p.serviceName;
     }
 
-    // sanity
+  
     if (serviceName == null) {
         throw "Use the 'addCheckoutParameters' method to define at least one checkout service.";
     }
 
-    // go to work
+   
     var parms = this.checkoutParameters[serviceName];
     if (parms == null) {
         throw "Cannot get checkout parameters for '" + serviceName + "'.";
@@ -156,12 +153,10 @@ shoppingCart.prototype.checkout = function (serviceName, clearCart) {
     }
 }
 
-// check out using PayPal
-// for details see:
-// www.paypal.com/cgi-bin/webscr?cmd=p/pdn/howto_checkout-outside
+
 shoppingCart.prototype.checkoutPayPal = function (parms, clearCart) {
 
-    // global data
+    
     var data = {
         cmd: "_cart",
         business: parms.merchantID,
@@ -170,7 +165,7 @@ shoppingCart.prototype.checkoutPayPal = function (parms, clearCart) {
         charset: "utf-8"
     };
 
-    // item data
+    
     for (var i = 0; i < this.items.length; i++) {
         var item = this.items[i];
         var ctr = i + 1;
@@ -180,7 +175,7 @@ shoppingCart.prototype.checkoutPayPal = function (parms, clearCart) {
         data["amount_" + ctr] = item.price.toFixed(2);
     }
 
-    // build form
+   
     var form = $('<form/></form>');
     form.attr("action", "https://www.paypal.com/cgi-bin/webscr");
     form.attr("method", "POST");
@@ -195,10 +190,7 @@ shoppingCart.prototype.checkoutPayPal = function (parms, clearCart) {
     form.remove();
 }
 
-// check out using Google Wallet
-// for details see:
-// developers.google.com/checkout/developer/Google_Checkout_Custom_Cart_How_To_HTML
-// developers.google.com/checkout/developer/interactive_demo
+
 shoppingCart.prototype.checkoutGoogle = function (parms, clearCart) {
 
     // global data
@@ -215,11 +207,9 @@ shoppingCart.prototype.checkoutGoogle = function (parms, clearCart) {
         data["item_merchant_id_" + ctr] = parms.merchantID;
     }
 
-    // build form
+    
     var form = $('<form/></form>');
-    // NOTE: in production projects, use the checkout.google url below;
-    // for debugging/testing, use the sandbox.google url instead.
-    //form.attr("action", "https://checkout.google.com/api/checkout/v2/merchantCheckoutForm/Merchant/" + parms.merchantID);
+    
     form.attr("action", "https://sandbox.google.com/checkout/api/checkout/v2/checkoutForm/Merchant/" + parms.merchantID);
     form.attr("method", "POST");
     form.attr("style", "display:none;");
@@ -227,21 +217,19 @@ shoppingCart.prototype.checkoutGoogle = function (parms, clearCart) {
     this.addFormFields(form, parms.options);
     $("body").append(form);
 
-    // submit form
+   
     this.clearCart = clearCart == null || clearCart;
     form.submit();
     form.remove();
 }
 
-// check out using Stripe
-// for details see:
-// https://stripe.com/docs/checkout
+
 shoppingCart.prototype.checkoutStripe = function (parms, clearCart) {
 
-    // global data
+    
     var data = {};
 
-    // item data
+    
     for (var i = 0; i < this.items.length; i++) {
         var item = this.items[i];
         var ctr = i + 1;
