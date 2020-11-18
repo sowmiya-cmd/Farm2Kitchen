@@ -1,0 +1,29 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT catalog (cd)+>
+<!ATTLIST catalog
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT cd (title,wishlist,country,district,product)>
+<!ATTLIST cd
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT title (#PCDATA)>
+<!ATTLIST title
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT wishlist (#PCDATA)>
+<!ATTLIST wishlist
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT country (#PCDATA)>
+<!ATTLIST country
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT district (#PCDATA)>
+<!ATTLIST district
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT product (#PCDATA)>
+<!ATTLIST product
+  xmlns CDATA #FIXED ''>

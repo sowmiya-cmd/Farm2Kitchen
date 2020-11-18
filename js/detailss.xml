@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="details.xsl"?>
+<catalog>
+  <cd>
+    <title>Priya</title>
+    <wishlist>Apple</wishlist>
+    <country>India</country>
+    <district>Dindugal</district >
+    <product>3</product>
+  </cd><cd>
+      <title>Sowmiya</title>
+    <wishlist>Orange</wishlist>
+    <country>India</country>
+    <district>Salem</district >
+    <product>2</product>
+  </cd><cd>
+      <title>Sathana</title>
+    <wishlist>Apple</wishlist>
+    <country>India</country>
+    <district>Dindugal</district >
+    <product>3</product>
+  </cd><cd>
+      <title>Santhiya</title>
+    <wishlist>Orange</wishlist>
+    <country>India</country>
+    <district>Salem</district >
+    <product>2</product>
+  </cd><cd>
+      <title>Srinithi</title>
+    <wishlist>Grapes</wishlist>
+    <country>India</country>
+    <district>Erode</district >
+    <product>1</product>
+  </cd><cd>
+      <title>Srinivas</title>
+    <wishlist>Grapes</wishlist>
+    <country>India</country>
+    <district>Erode</district >
+    <product>1</product>
+  </cd><cd>
+  <title>Shanthi</title>
+    <wishlist>Onion</wishlist>
+    <country>India</country>
+    <district>Madurai</district >
+    <product>4</product>
+	</cd>
+	<cd>
+  <title>Giri</title>
+    <wishlist>Onion</wishlist>
+    <country>India</country>
+    <district>Madurai</district >
+    <product>4</product>
+	</cd>
+	<cd>
+  <title>Som</title>
+    <wishlist>Tomato</wishlist>
+    <country>India</country>
+    <district>Coimbatore</district >
+    <product>5</product>
+	</cd>
+	<cd>
+  <title>Aari</title>
+    <wishlist>Tomato</wishlist>
+    <country>India</country>
+    <district>Coimbatore</district >
+    <product>5</product>
+	</cd>
+	
+</catalog>
+

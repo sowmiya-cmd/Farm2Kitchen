@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="catalog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="cd"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element ref="wishlist"/>
+        <xs:element ref="country"/>
+        <xs:element ref="district"/>
+        <xs:element ref="product"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="xs:NCName"/>
+  <xs:element name="wishlist" type="xs:NCName"/>
+  <xs:element name="country" type="xs:NCName"/>
+  <xs:element name="district" type="xs:NCName"/>
+  <xs:element name="product" type="xs:integer"/>
+</xs:schema>

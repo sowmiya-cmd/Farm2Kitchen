@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<?xml-stylesheet type="text/xsl" href="valuess.xsl"?> 
+<product> 
+  <s> 
+   <name> Apples</name> 
+   <id >1</id > 
+   <price>100/kg</price> 
+   
+  </s> 
+  <s> 
+   <name> Orange </name> 
+   <id >2</id > 
+   <price>50/kg</price> 
+   
+  </s> 
+  <s>  
+   <name> Grapes</name> 
+   <id >3</id > 
+   <price> 80/kg</price> 
+   
+  </s> 
+  <s>  
+   <name> Onion </name> 
+   <id >4</id > 
+   <price> 45/kg</price> 
+   
+  </s> 
+  <s>  
+   <name>Tomato</name> 
+   <id >5</id > 
+   <price> 13/kg</price> 
+  
+  </s> 
+ </product> 
