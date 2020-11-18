@@ -35,6 +35,44 @@
                    </a>
                    <p style="font-size:50px">FarmToKitchen</p> 
                 </h1>
+                                             <script>
+    var text = '{"products":['+
+   '{
+      "name": "Apples",
+      "id": "1",
+      "price": "100/kg"},'+
+   '{"name": "Orange",
+      "id": "2",
+      "price": "50/kg"},'+
+   '{ "name": "Grapes",
+      "id": "3",
+      "price": "80/kg"},'+
+   '{"name": "Onion",
+      "id": "4",
+      "price": "45/kg"},'+
+   '{ "name": "Tomato",
+      "id": "5",
+      "price": "13/kg"}]}';
+
+ 
+]
+
+  var obj = JSON.parse(text);
+   document.getElementById("product1").innerHTML =  "<li>" + obj.product[0].name + " - " +  obj.product[0].price + "</li>" ;
+    document.getElementById("product2").innerHTML =  "<li>" + obj.product[1].name + " - " +  obj.product[1].price + "</li>" ;
+     document.getElementById("product3").innerHTML =  "<li>" + obj.product[2].name + " - " +  obj.product[2].price + "</li>" ;
+      document.getElementById("product4").innerHTML =  "<li>" + obj.product[3].name + " - " +  obj.product[3].price + "</li>" ;
+       document.getElementById("product5").innerHTML =  "<li>" + obj.product[4].name + " - " +  obj.product[4].price + "</li>" ;
+
+</script>
+<div>
+                          <h3>Products and their prices</h3>
+                          <ul id ="product1"></ul>
+                          <ul id ="product2"></ul>
+                          <ul id ="product3"></ul>
+                          <ul id ="product4"></ul>
+                          <ul id ="product5"></ul>
+                        </div>
                 <div ng-view></div>
             </div>
         </div>
