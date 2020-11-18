@@ -1,33 +1,12 @@
 ﻿<p class="text-info">
-   <b><marquee> <h1>HAPPY SHOPPINGss</h1> </b></marquee><br />
+   <b><marquee> <h1>HAPPY SHOPPING</h1> </b></marquee><br />
    For Queries Contact<br>
    <b>Name:</b> Sowmiya.B
    <br> <b> Email-id:</b> sowmi010201@gmail.com<br>
    <b>Contact:</b>8888899999<br>
    
 </p>
-  <section id="contact" class="content-section">
-                <div>
-                  <center><h2 id="demo"></h2>
-                  <h4 id="demo1"></h4></center>
- </div>
-            </section>
-<script>
-var parser, xmlDoc;
-var text = "<products><price>" +
-"<title>Thanks for Visiting Us !!!</title>" +
-"<contact>Email : sowmi010201@gmail.com</contact>" +
-"</price></products>";
-
-parser = new DOMParser();
-xmlDoc = parser.parseFromString(text,"text/xml");
-
-document.getElementById("demo").innerHTML =
-xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
-document.getElementById("demo1").innerHTML =
-xmlDoc.getElementsByTagName("contact")[0].childNodes[0].nodeValue;
-</script>
-
+ 
                
 
 <div class="container-fluid">
@@ -148,3 +127,25 @@ xmlDoc.getElementsByTagName("contact")[0].childNodes[0].nodeValue;
         </div>
     </div>
 </div>
+ <section id="contact" class="content-section">
+                <div>
+                  <center><h2 id="demo"></h2>
+                  <h4 id="demo1"></h4></center>
+ </div>
+            </section>
+<script>
+var parser, xmlDoc;
+var text = "<products><price>" +
+"<title>Thanks for Visiting Us !!!</title>" +
+"<contact>Email : sowmi010201@gmail.com</contact>" +
+"</price></products>";
+
+parser = new DOMParser();
+xmlDoc = parser.parseFromString(text,"text/xml");
+
+document.getElementById("demo").innerHTML =
+xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+document.getElementById("demo1").innerHTML =
+xmlDoc.getElementsByTagName("contact")[0].childNodes[0].nodeValue;
+</script>
+
