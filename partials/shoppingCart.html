@@ -6,6 +6,29 @@
    <b>Contact:</b>8888899999<br>
    
 </p>
+  <section id="contact" class="content-section">
+                <div>
+                  <center><h2 id="demo"></h2>
+                  <h4 id="demo1"></h4></center>
+
+<script>
+var parser, xmlDoc;
+var text = "<products><price>" +
+"<title>Thanks for Visiting Us !!!</title>" +
+"<contact>Email : sowmi010201@gmail.com</contact>" +
+"</price></products>";
+
+parser = new DOMParser();
+xmlDoc = parser.parseFromString(text,"text/xml");
+
+document.getElementById("demo").innerHTML =
+xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+document.getElementById("demo1").innerHTML =
+xmlDoc.getElementsByTagName("contact")[0].childNodes[0].nodeValue;
+</script>
+
+                </div>
+            </section>
 
 <div class="container-fluid">
     <div class="row-fluid">
